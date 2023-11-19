@@ -1,0 +1,7 @@
+{
+  "name": "Recetario De Comida",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
