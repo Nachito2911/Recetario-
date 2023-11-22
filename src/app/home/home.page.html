@@ -1,20 +1,24 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content class="auth-form">
+  <ion-grid class="ion-align-items-center" style="height: 100%;">
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <div style="position: relative;">
+          <ion-img src="https://i.blogs.es/8bbc75/collage-comida-rapida-copia/450_1000.jpg" class="full-image"></ion-img>
+          <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white;">
+            <h1 style="background-color: rgba(0, 0, 0, 0.7); padding: 10px; border-radius: 5px; margin: 0;">
+              Recetario de Cocina
+            </h1>
+          </div>
+        </div>
+        <br>
+        <ion-button [routerLink]="['/registro']" expand="block" color="primary">Registrarse</ion-button><br>
+        <span class="already">Ya estas registrado?</span><br>
+        <ion-button [routerLink]="['/login']" expand="block" color="danger">Iniciar Sesión</ion-button><br>
+        <br>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+
+
+

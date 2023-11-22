@@ -1,0 +1,35 @@
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Crear Nueva Receta</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Nombre de la receta</ion-label>
+        <ion-input [(ngModel)]="nuevaReceta.title" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Tipo de receta</ion-label>
+        <ion-input [(ngModel)]="nuevaReceta.tipo" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Ingredientes</ion-label>
+        <ion-textarea [(ngModel)]="nuevaReceta.ingredients" required></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Pasos</ion-label>
+        <ion-textarea [(ngModel)]="nuevaReceta.steps" required></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">URL de la imagen</ion-label>
+        <ion-input [(ngModel)]="nuevaReceta.image" type="url" required></ion-input>
+      </ion-item>
+
+      <ion-button expand="full" color="primary" (click)="agregarReceta()">Agregar Receta</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
