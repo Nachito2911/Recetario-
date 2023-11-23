@@ -1,3 +1,12 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/inicio"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Crear Nueva Receta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
   <ion-card>
     <ion-card-header>
@@ -11,7 +20,11 @@
 
       <ion-item>
         <ion-label position="floating">Tipo de receta</ion-label>
-        <ion-input [(ngModel)]="nuevaReceta.tipo" required></ion-input>
+        <ion-select [(ngModel)]="nuevaReceta.tipo" placeholder="Selecciona el tipo de receta" required>
+          <ion-select-option value="Recetas Clasicas">Recetas Clasicas</ion-select-option>
+          <ion-select-option value="Receta Vegana">Receta Vegana</ion-select-option>
+          <ion-select-option value="Recetas de Postres">Recetas de Postres</ion-select-option>
+        </ion-select>
       </ion-item>
 
       <ion-item>

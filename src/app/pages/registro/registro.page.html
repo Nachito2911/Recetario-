@@ -7,26 +7,29 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <form>
+  <form #registroForm="ngForm" (ngSubmit)="submitForm()">
     <ion-item lines="full">
       <ion-label position="floating">Nombre</ion-label>
-      <ion-input type="text" required></ion-input>
+      <ion-input type="text" name="nombre" [(ngModel)]="formData.nombre" required></ion-input>
     </ion-item>
     <ion-item lines="full">
       <ion-label position="floating">Apellido</ion-label>
-      <ion-input type="text" required></ion-input>
+      <ion-input type="text" name="apellido" [(ngModel)]="formData.apellido" required></ion-input>
     </ion-item>
     <ion-item lines="full">
       <ion-label position="floating">Correo</ion-label>
-      <ion-input type="text" required></ion-input>
+      <ion-input type="text" name="correo" [(ngModel)]="formData.correo" required></ion-input>
     </ion-item>
     <ion-item lines="full">
-      <ion-label position="floating">Contraseña</ion-label>
-      <ion-input type="password" required></ion-input>
+      <ion-label position="floating">Clave</ion-label>
+      <ion-input type="password" name="clave" [(ngModel)]="formData.clave" required></ion-input>
     </ion-item>
     <ion-row>
       <ion-col>
-        <ion-button type="submit" color="danger" expand="block" [routerLink]="['/inicio']">Iniciar Sesion</ion-button>
+        <!-- Cambié la dirección de routerLink a '/inicio' -->
+        <ion-button type="submit" color="danger" expand="block" [disabled]="!registroForm.form.valid" [routerLink]="['/inicio']">
+          Iniciar Sesión
+        </ion-button>
       </ion-col>
     </ion-row>
   </form>

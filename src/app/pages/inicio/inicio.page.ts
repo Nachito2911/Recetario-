@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-inicio',
@@ -8,21 +8,54 @@ import { NavController } from '@ionic/angular';
 })
 export class InicioPage implements OnInit {
 
-  constructor(private navCtrl: NavController) { }
+  constructor(private navCtrl: NavController, private alertController: AlertController) { }
+
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    // Código de inicialización si es necesario
+  }
+
+  async confirmarCerrarSesion() {
+    const alert = await this.alertController.create({
+      header: 'Cerrar Sesión',
+      message: '¿Estás seguro de que deseas cerrar sesión?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Cancelado');
+          }
+        }, {
+          text: 'Sí',
+          handler: () => {
+            // Aquí puedes realizar la lógica de cierre de sesión, como limpiar tokens, etc.
+            console.log('Cerrar Sesión'); // Puedes reemplazar esto con tu lógica de cierre de sesión
+
+            // Redirige al usuario a la página de inicio de sesión
+            this.navCtrl.navigateRoot('/login');
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+  irACrearReceta() {
+    this.navCtrl.navigateForward('/crear-receta');
   }
 
   redirectToClasicaPage() {
-    this.navCtrl.navigateForward('/recetas-clasicas.page.html'); // Reemplaza 'clasica-page' con la ruta real de tu página
+    this.navCtrl.navigateForward('/recetas-clasicas');
   }
 
   redirectToVeganoPage() {
-    this.navCtrl.navigateForward('/recetas-veganas.page.html'); // Reemplaza 'vegano-page' con la ruta real de tu página
+    this.navCtrl.navigateForward('/recetas-veganas');
   }
 
   redirectToPostrePage() {
-    this.navCtrl.navigateForward('/postre-page'); // Reemplaza 'postre-page' con la ruta real de tu página
+    this.navCtrl.navigateForward('/recetas-postres');
   }
 
 }

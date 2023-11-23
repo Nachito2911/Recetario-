@@ -9,9 +9,9 @@ import { Router } from '@angular/router';
 export class CrearRecetaPage {
 
   nuevaReceta = {
-    title: 'scripts',
-    tipo: 'scripts',  // Nuevo campo para el tipo de receta
-    ingredients: 'sctipts',
+    title: '',
+    tipo: '',  
+    ingredients: '',
     steps: '',
     image: ''
   };
@@ -26,8 +26,22 @@ export class CrearRecetaPage {
       // Por ahora, solo imprimiré la nueva receta en la consola
       console.log('Nueva Receta:', this.nuevaReceta);
 
-      // Después de agregar la receta, redirigir a la página de recetas
-      this.router.navigate(['/recetas']);
+      // Después de agregar la receta, redirigir a la página correspondiente según el tipo
+      switch (this.nuevaReceta.tipo) {
+        case 'Recetas Clasicas':
+          this.router.navigate(['/recetas-clasicas']);
+          break;
+        case 'Receta Vegana':
+          this.router.navigate(['/recetas-veganas']);
+          break;
+        case 'Recetas de Postres':
+          this.router.navigate(['/recetas-postres']);
+          break;
+        default:
+          // Página por defecto o manejo de error
+          this.router.navigate(['/inicio']);
+          break;
+      }
     } else {
       alert('Por favor, complete todos los campos.');
     }

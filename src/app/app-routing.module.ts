@@ -41,7 +41,16 @@ const routes: Routes = [
   },
   {
     path: 'crear-receta',
-    loadChildren: () => import('./pages/crear-receta/crear-receta.module').then( m => m.CrearRecetaPageModule)
+    loadChildren: () => import('./pages/crear-receta/crear-receta.module').then(m => m.CrearRecetaPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule),
+  },
+  // Otras rutas...
+  {
+    path: 'inicio',
+    loadChildren: () => import('./pages/inicio/inicio.module').then(m => m.InicioPageModule),
   },
 ];
 
